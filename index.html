@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random sõnad · EE ↔ RU</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app-shell">
+    <header class="hero">
+      <div class="hero-badge">HAJUSRAKENDUSED · RANDOM SÕNAD</div>
+      <h1>Õpi sõnavara kahes suunas</h1>
+      <p>
+        Veebirakendus valib massiivist juhusliku termini ja kontrollib kasutaja vastust.
+        Vasakul töötab EE → RU päring, paremal RU → EE päring.
+      </p>
+
+      <div class="hero-actions">
+        <button class="button button-primary" id="newBoth" type="button">Uued sõnad</button>
+        <button class="button button-secondary" id="reloadPage" type="button">Värskenda lehte</button>
+      </div>
+    </header>
+
+    <section class="stats" aria-label="Tulemused">
+      <article class="stat-card">
+        <span>Õiged vastused</span>
+        <strong id="scoreCorrect">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Valed vastused</span>
+        <strong id="scoreWrong">0</strong>
+      </article>
+      <article class="stat-card">
+        <span>Sõnu massiivis</span>
+        <strong id="dictSize">0</strong>
+      </article>
+      <article class="stat-card stat-action">
+        <button class="button button-ghost" id="resetScore" type="button">Nulli tulemus</button>
+      </article>
+    </section>
+
+    <section class="quiz-section">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">SÕNAVARA KONTROLL</span>
+          <h2>Kaks tõlkesuunda</h2>
+        </div>
+        <span class="connection-state"><span></span> client ready</span>
+      </div>
+
+      <!-- Ülesande nõude järgi on harjutus tehtud päris HTML tabelina kahe veeruga. -->
+      <div class="table-wrap">
+        <table class="quiz-table">
+          <thead>
+            <tr>
+              <th>Eesti → vene</th>
+              <th>Vene → eesti</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <div class="quiz-card">
+                  <span class="request-label">REQUEST · EE</span>
+                  <div class="word-display" id="wordEE">...</div>
+                  <label for="inputRU">Sisesta venekeelne vaste</label>
+                  <input id="inputRU" type="text" autocomplete="off" placeholder="Например: сервер">
+                  <div class="card-actions">
+                    <button class="button button-primary" id="checkEE" type="button">Kontrolli</button>
+                    <button class="button button-secondary" id="refreshEE" type="button">Uus sõna</button>
+                  </div>
+                  <div class="feedback" id="feedbackEE" aria-live="polite"></div>
+                </div>
+              </td>
+              <td>
+                <div class="quiz-card">
+                  <span class="request-label">REQUEST · RU</span>
+                  <div class="word-display" id="wordRU">...</div>
+                  <label for="inputEE">Sisesta eestikeelne vaste</label>
+                  <input id="inputEE" type="text" autocomplete="off" placeholder="Näiteks: server">
+                  <div class="card-actions">
+                    <button class="button button-primary" id="checkRU" type="button">Kontrolli</button>
+                    <button class="button button-secondary" id="refreshRU" type="button">Uus sõna</button>
+                  </div>
+                  <div class="feedback" id="feedbackRU" aria-live="polite"></div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="add-word-section">
+      <div class="section-heading compact">
+        <div>
+          <span class="section-kicker">ANDMEMASSIIV</span>
+          <h2>Lisa uus sõnapaar</h2>
+        </div>
+      </div>
+
+      <p class="helper-text">
+        Lisa eesti- ja venekeelne termin. Uus objekt lisatakse JavaScripti massiivi ning seda saab kohe random-harjutuses kasutada.
+      </p>
+
+      <form id="addWordForm" class="add-word-form">
+        <div class="field-group">
+          <label for="newEE">Eestikeelne sõna</label>
+          <input id="newEE" type="text" placeholder="nt veebiteenus" required>
+        </div>
+        <div class="field-group">
+          <label for="newRU">Venekeelne vaste</label>
+          <input id="newRU" type="text" placeholder="nt веб-сервис" required>
+        </div>
+        <button class="button button-primary add-button" type="submit">Lisa massiivi</button>
+      </form>
+      <div class="form-message" id="addWordMessage" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      <span>Random sõnad</span>
+      <span>HTML · CSS · JavaScript · LiteTracker · GitHub</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
