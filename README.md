@@ -22,3 +22,4 @@ HTML, CSS ja JavaScript.
 `feature/ee-ru-vocabulary-table`
 
 - LiteTracker integration tested successfully.
+- LiteTracker story linked.
