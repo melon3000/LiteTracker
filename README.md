@@ -23,3 +23,4 @@ HTML, CSS ja JavaScript.
 
 - LiteTracker integration tested successfully.
 - LiteTracker story linked.
+- Second LiteTracker integration test.
