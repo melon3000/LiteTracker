@@ -20,3 +20,5 @@ HTML, CSS ja JavaScript.
 ## Soovitatud branch
 
 `feature/ee-ru-vocabulary-table`
+
+- LiteTracker integration tested successfully.
